@@ -22,6 +22,10 @@ message Person {
     repeated Car car = 4;  // repeated = list
 }
 
+message Dealer {
+    map<int32, Car> model = 1;
+}
+
 //message BalanceCheckRequest {
 //    int32 account_number = 1;
 //}
