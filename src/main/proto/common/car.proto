@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package common; // this package is different from java_package. This is for the proto files, not for java
+
+option java_multiple_files = true;
+option java_package = "com.study.models";
+
+message Car {
+  string maker = 1;
+  string model = 2;
+  int32 year = 3;
+  BodyStyle body_style = 4;
+}
+
+enum BodyStyle {
+  UNKNOWN = 0;  //  0 is the default value
+  SEDAN = 1;
+  COUPE = 2;
+  SUV = 3;
+
+}
