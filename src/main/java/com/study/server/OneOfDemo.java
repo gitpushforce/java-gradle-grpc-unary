@@ -1,8 +1,8 @@
 package com.study.server;
 
-import com.study.mdoels.Credentials;
-import com.study.mdoels.EmailCredentials;
-import com.study.mdoels.PhoneOTP;
+import com.study.models.Credentials;
+import com.study.models.EmailCredentials;
+import com.study.models.PhoneOTP;
 
 public class OneOfDemo {
 

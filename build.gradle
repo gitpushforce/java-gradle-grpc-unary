@@ -14,39 +14,24 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
     implementation 'com.google.protobuf:protobuf-javalite:3.8.0'
+    implementation 'io.grpc:grpc-netty-shaded:1.53.0'
 }
 
 protobuf {
     protoc {
         // You still need protoc like in the non-Android case
-        artifact = 'com.google.protobuf:protoc:3.8.0'
+        artifact = 'com.google.protobuf:protoc:3.9.0'
     }
-//    plugins {
-//        javalite {
-//            // The codegen for lite comes as a separate artifact
-//            artifact = 'com.google.protobuf:protoc-gen-javalite:3.0.0'
-//        }
-//    }
-//    generateProtoTasks {
-//        all().configureEach { task ->
-//            task.builtins {
-//                // In most cases you don't need the full Java output
-//                // if you use the lite output.
-//                remove java
-//            }
-//            task.plugins {
-//                javalite { }
-//            }
-//        }
-//    }
+
+    plugins {
+        grpc {
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.53.0'
+        }
+    }
 
     generateProtoTasks {
-        all().configureEach { task ->
-            task.builtins {
-                java {
-                    option "lite"
-                }
-            }
+        all()*.plugins {
+            grpc {}
         }
     }
 }
