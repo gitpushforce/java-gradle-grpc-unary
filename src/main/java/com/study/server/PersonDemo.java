@@ -1,5 +1,6 @@
 package com.study.server;
 
+import com.google.protobuf.Int32Value;
 import com.study.models.Address;
 import com.study.models.Car;
 import com.study.models.Person;
@@ -35,7 +36,7 @@ public class PersonDemo {
 
         Person sam = Person.newBuilder()
                 .setName("sam")
-                .setAge(10)
+                .setAge(Int32Value.newBuilder().setValue(25).build())
                 .setAddress(address)
                 //.addCar(hondaAccord)
                 //.addCar(hondaCivic)        this way will work too

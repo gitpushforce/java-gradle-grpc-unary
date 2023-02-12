@@ -2,13 +2,16 @@ syntax = "proto3";
 
 import "common/address.proto";
 import "common/car.proto";
+import "google/protobuf/wrappers.proto";
 
 option java_multiple_files = true;
 option java_package = "com.study.models";
 
 message Person {
     string name = 1;
-    int32 age = 2;
+    // wrapper type instead of int32 we can use the method hasAge() to check its existence
+    // primitive int32 doesn't return null, wrapped value does
+    google.protobuf.Int32Value age = 2;
     common.Address address = 3;
     repeated common.Car car = 4;  // repeated = list
 }
