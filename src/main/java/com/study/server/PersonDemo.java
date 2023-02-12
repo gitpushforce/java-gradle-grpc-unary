@@ -36,7 +36,8 @@ public class PersonDemo {
 
         Person sam = Person.newBuilder()
                 .setName("sam")
-                .setAge(Int32Value.newBuilder().setValue(25).build())
+                //.setAge(Int32Value.newBuilder().setValue(25).build())
+                .setAge(25)
                 .setAddress(address)
                 //.addCar(hondaAccord)
                 //.addCar(hondaCivic)        this way will work too
