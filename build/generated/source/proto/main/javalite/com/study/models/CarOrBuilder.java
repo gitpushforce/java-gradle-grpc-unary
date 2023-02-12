@@ -31,4 +31,13 @@ public interface CarOrBuilder extends
    * <code>optional int32 year = 3;</code>
    */
   int getYear();
+
+  /**
+   * <code>optional .BodyStyle body_style = 4;</code>
+   */
+  int getBodyStyleValue();
+  /**
+   * <code>optional .BodyStyle body_style = 4;</code>
+   */
+  com.study.models.BodyStyle getBodyStyle();
 }

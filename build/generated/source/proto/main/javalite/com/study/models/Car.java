@@ -130,6 +130,45 @@ public  final class Car extends
     year_ = 0;
   }
 
+  public static final int BODY_STYLE_FIELD_NUMBER = 4;
+  private int bodyStyle_;
+  /**
+   * <code>optional .BodyStyle body_style = 4;</code>
+   */
+  public int getBodyStyleValue() {
+    return bodyStyle_;
+  }
+  /**
+   * <code>optional .BodyStyle body_style = 4;</code>
+   */
+  public com.study.models.BodyStyle getBodyStyle() {
+    com.study.models.BodyStyle result = com.study.models.BodyStyle.forNumber(bodyStyle_);
+    return result == null ? com.study.models.BodyStyle.UNRECOGNIZED : result;
+  }
+  /**
+   * <code>optional .BodyStyle body_style = 4;</code>
+   */
+  private void setBodyStyleValue(int value) {
+      bodyStyle_ = value;
+  }
+  /**
+   * <code>optional .BodyStyle body_style = 4;</code>
+   */
+  private void setBodyStyle(com.study.models.BodyStyle value) {
+    if (value == null) {
+      throw new NullPointerException();
+    }
+    
+    bodyStyle_ = value.getNumber();
+  }
+  /**
+   * <code>optional .BodyStyle body_style = 4;</code>
+   */
+  private void clearBodyStyle() {
+    
+    bodyStyle_ = 0;
+  }
+
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (!maker_.isEmpty()) {
@@ -140,6 +179,9 @@ public  final class Car extends
     }
     if (year_ != 0) {
       output.writeInt32(3, year_);
+    }
+    if (bodyStyle_ != com.study.models.BodyStyle.UNKNOWN.getNumber()) {
+      output.writeEnum(4, bodyStyle_);
     }
   }
 
@@ -159,6 +201,10 @@ public  final class Car extends
     if (year_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(3, year_);
+    }
+    if (bodyStyle_ != com.study.models.BodyStyle.UNKNOWN.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(4, bodyStyle_);
     }
     memoizedSerializedSize = size;
     return size;
@@ -349,6 +395,43 @@ public  final class Car extends
       return this;
     }
 
+    /**
+     * <code>optional .BodyStyle body_style = 4;</code>
+     */
+    public int getBodyStyleValue() {
+      return instance.getBodyStyleValue();
+    }
+    /**
+     * <code>optional .BodyStyle body_style = 4;</code>
+     */
+    public Builder setBodyStyleValue(int value) {
+      copyOnWrite();
+      instance.setBodyStyleValue(value);
+      return this;
+    }
+    /**
+     * <code>optional .BodyStyle body_style = 4;</code>
+     */
+    public com.study.models.BodyStyle getBodyStyle() {
+      return instance.getBodyStyle();
+    }
+    /**
+     * <code>optional .BodyStyle body_style = 4;</code>
+     */
+    public Builder setBodyStyle(com.study.models.BodyStyle value) {
+      copyOnWrite();
+      instance.setBodyStyle(value);
+      return this;
+    }
+    /**
+     * <code>optional .BodyStyle body_style = 4;</code>
+     */
+    public Builder clearBodyStyle() {
+      copyOnWrite();
+      instance.clearBodyStyle();
+      return this;
+    }
+
     // @@protoc_insertion_point(builder_scope:Car)
   }
   protected final Object dynamicMethod(
@@ -376,6 +459,7 @@ public  final class Car extends
             !other.model_.isEmpty(), other.model_);
         year_ = visitor.visitInt(year_ != 0, year_,
             other.year_ != 0, other.year_);
+        bodyStyle_ = visitor.visitInt(bodyStyle_ != 0, bodyStyle_,    other.bodyStyle_ != 0, other.bodyStyle_);
         if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
             .INSTANCE) {
         }
@@ -415,6 +499,12 @@ public  final class Car extends
               case 24: {
 
                 year_ = input.readInt32();
+                break;
+              }
+              case 32: {
+                int rawValue = input.readEnum();
+
+                bodyStyle_ = rawValue;
                 break;
               }
             }
